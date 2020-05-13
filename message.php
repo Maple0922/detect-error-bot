@@ -10,7 +10,7 @@ function get_http_status_code($url) {
   }
 }
 
-$target_url = 'https://qiita.com/';
+$target_url = 'https://oh-o2.meiji.ac.jp/portal/oh-o_meiji/';
 
 $status_code = get_http_status_code($target_url);
 
@@ -38,6 +38,6 @@ switch ($status_code) {
 
 ini_set("date.timezone", "Asia/Tokyo");
 
-$message = '【'.$status_code.'】'.$status_message. '('. date('Y/n/d/H:i') .')';
+$message = '【'.$status_code.'】'.$status_message. '('. date('Y/m/d/H:i') .')';
 
 ?>

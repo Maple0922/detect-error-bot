@@ -15,9 +15,18 @@ $TWITTER_STATUS_UPDATE_URL = "http://api.twitter.com/1.1/statuses/update.json";
 
 $method  = 'POST';
 
-if ($prev_status_code !== $status_code) {
+
+// tweet
+$prev_status_code = file_get_contents('txt/prevcode.txt');
+$tweet = False;
+if ($prev_status_code != $status_code) {
   $response = $twitter->post('statuses/update', array('status' => $message));
-  $prev_status_code = $status_code;
+  file_put_contents('txt/prevcode.txt', $status_code);
+  $tweet = True;
 }
+
+// log
+$log_message = ' ['.$status_code.'] ('.date('Y/m/d/H:i:s').') '.$status_message."\n";
+file_put_contents('txt/log.txt', $log_message, FILE_APPEND);
 
 ?>

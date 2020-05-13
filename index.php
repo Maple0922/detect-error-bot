@@ -21,7 +21,7 @@
       <p>CODE : <?php echo $status_code; ?></p>
       <p>MESSAGE : <?php echo $status_message; ?></p>
       <p>TIME : <?php echo date('Y/n/d/H:i'); ?></p>
-      <p>TWEET : <?php echo ($prev_status_code !== $status_code); ?></p>
+      <p>TWEET : <?php if($tweet){echo 'True';}else{echo 'False';} ?></p>
     </div>
   </main>
 </body>
