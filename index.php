@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>newsite</title>
+  <title>Oh-o!Meiji Server Error Bot</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="icon/favicon.svg">
   <link rel="apple-touch-icon" href="icon/favicon.svg">
@@ -13,17 +13,16 @@
 </head>
 <body>
   <header class="header">
-    <h1 class="header__title">title</h1>
+    <h1 class="header__title">Oh-o!Meiji Server Error Bot</h1>
   </header>
   <main class="main">
     <div class="main__container">
       <p>URL : <a href="<?php echo $target_url ?>" target="_blank"><?php echo $target_url; ?></a></p>
-      <p>STATUS : <?php echo $status_code; ?></p>
-      <p>TWEET : <?php echo $error_message; ?></p>
+      <p>CODE : <?php echo $status_code; ?></p>
+      <p>MESSAGE : <?php echo $status_message; ?></p>
+      <p>TIME : <?php echo date('Y/n/d/H:i'); ?></p>
+      <p>TWEET : <?php echo ($prev_status_code !== $status_code); ?></p>
     </div>
   </main>
-  <footer class="footer">
-
-  </footer>
 </body>
 </html>

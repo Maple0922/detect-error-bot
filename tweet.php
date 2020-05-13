@@ -1,9 +1,8 @@
 <?php
 
+use Abraham\TwitterOAuth\TwitterOAuth;
 require 'twitteroauth/autoload.php';
 require 'message.php';
-
-use Abraham\TwitterOAuth\TwitterOAuth;
 
 $ck  = 'y4BzxqNJsyMLwDUiu545Z61sm';                            // コンシューマーキー
 $cs  = 'WhN11Plbm4FVldzEtC2IWUWH4sOdt8vuEhYuvADLHYyR7TDLav';   // コンシューマーシークレット
@@ -16,15 +15,9 @@ $TWITTER_STATUS_UPDATE_URL = "http://api.twitter.com/1.1/statuses/update.json";
 
 $method  = 'POST';
 
-
-
 if ($prev_status_code !== $status_code) {
-
   $response = $twitter->post('statuses/update', array('status' => $message));
-
   $prev_status_code = $status_code;
-
 }
-
 
 ?>
