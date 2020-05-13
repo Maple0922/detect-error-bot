@@ -1,3 +1,4 @@
+<?php require_once('tweet.php'); ?>
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
 <head>
@@ -16,7 +17,9 @@
   </header>
   <main class="main">
     <div class="main__container">
-      main
+      <p>URL : <a href="<?php echo $target_url ?>" target="_blank"><?php echo $target_url; ?></a></p>
+      <p>STATUS : <?php echo $status_code; ?></p>
+      <p>TWEET : <?php echo $error_message; ?></p>
     </div>
   </main>
   <footer class="footer">
