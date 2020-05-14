@@ -18,14 +18,12 @@ $method  = 'POST';
 
 // tweet
 $ch = curl_init();
-curl_setopt( $ch, CURLOPT_URL, './txt/prevcode.txt' );
-curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-$prev_status_code = curl_exec( $ch );
-curl_close();
+	curl_setopt($ch, CURLOPT_URL, '~/Web/detect-error-bot/txt/prevcode.txt');
+	$prev_status_code = curl_exec($ch);
+	curl_close($ch);
 
-
-$tweet = $prev_status_code != $status_code;
-if (isset($tweet)) {
+printf($prev_status_code);
+if (false){
   $response = $twitter->post('statuses/update', array('status' => $message));
   file_put_contents('txt/prevcode.txt', $status_code);
   $tweet = true;
