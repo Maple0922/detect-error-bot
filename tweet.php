@@ -30,9 +30,13 @@ if($status_code == 302){
 	$status_code = 200;
 }
 
-// $log_time = date('i') == 0;
-$log_time = date('i')%20 == 0;
+// $log_time = date('i')%20 == 0;
 $tweet_time = date('H')%2 == 1 && date('i') == 0;
+
+// デバッグ用
+// $status_code = 500;
+$log_time = date('i')%1 == 0;
+// $tweet_time = date('i')%2 == 0;
 
 $change = $prev_status_code != $status_code;
 
@@ -51,6 +55,13 @@ switch ($status_code) {
 	break;
 }
 
+// log (change)
+
+if($change){
+	$change_message = "\n".' ------------ サーバーの稼働状況が変わりました。------------ '."\n\n";
+	file_put_contents($log_file, $change_message, FILE_APPEND);
+}
+
 // log (regular time)
 
 if($log_time){
@@ -58,12 +69,6 @@ if($log_time){
 	file_put_contents($log_file, $log_message, FILE_APPEND);
 }
 
-// log (change)
-
-if($change){
-	$change_message = "\n".' ------------ サーバーの稼働状況が変わりました。------------ '."\n\n";
-	file_put_contents($log_file, $change_message, FILE_APPEND);
-}
 
 // tweet
 
