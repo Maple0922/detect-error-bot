@@ -17,12 +17,18 @@ $method  = 'POST';
 
 
 // tweet
-$prev_status_code = file_get_contents('txt/prevcode.txt');
-$tweet = False;
-if ($prev_status_code != $status_code) {
+$ch = curl_init();
+curl_setopt( $ch, CURLOPT_URL, './txt/prevcode.txt' );
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+$prev_status_code = curl_exec( $ch );
+curl_close();
+
+
+$tweet = $prev_status_code != $status_code;
+if (isset($tweet)) {
   $response = $twitter->post('statuses/update', array('status' => $message));
   file_put_contents('txt/prevcode.txt', $status_code);
-  $tweet = True;
+  $tweet = true;
 }
 
 // log

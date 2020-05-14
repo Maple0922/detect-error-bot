@@ -13,6 +13,7 @@ function get_http_status_code($url) {
 $target_url = 'https://oh-o2.meiji.ac.jp/portal/oh-o_meiji/';
 
 $status_code = get_http_status_code($target_url);
+// $status_code = 500;
 
 switch ($status_code) {
   case 200:
