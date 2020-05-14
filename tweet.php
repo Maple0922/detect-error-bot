@@ -15,12 +15,12 @@ $TWITTER_STATUS_UPDATE_URL = "http://api.twitter.com/1.1/statuses/update.json";
 
 $method  = 'POST';
 
-
 // tweet
-$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, '~/Web/detect-error-bot/txt/prevcode.txt');
-	$prev_status_code = curl_exec($ch);
-	curl_close($ch);
+
+$prevcode_file = '~/Web/detect_error_bot/txt/prevcode.txt';
+$log_file = '~/Web/detect_error_bot/txt/log.txt';
+
+$prev_status_code = file_get_contents($prevcode_file);
 
 printf($prev_status_code);
 if (false){
