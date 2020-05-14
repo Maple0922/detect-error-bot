@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400|Roboto:300,400&display=swap");
 * {
   box-sizing: border-box; }
@@ -50,12 +51,13 @@ a, input, button, textarea, select, option {
   height: 80px;
   width: 100%;
   padding: 0 30px;
-  background: #fcfcfc;
+  background: #180d44;
   box-shadow: 0 0 8px 0 #bbb;
   position: relative; }
   .header__title {
     font-size: 2.4rem;
-    line-height: 80px; }
+    line-height: 80px;
+    color: #fcfcfc; }
 
 .main {
   min-height: calc(100vh - 80px);
@@ -64,12 +66,26 @@ a, input, button, textarea, select, option {
   font-size: 1.6rem; }
   .main__container {
     background: #fcfcfc;
-    padding: 16px 24px;
-    margin-bottom: 20px;
+    padding: 16px 24px 24px;
+    margin-bottom: 30px;
     border-radius: 6px;
     box-shadow: 0 0 8px 0 #bbb; }
-    .main__container p {
-      line-height: 1.4;
-      margin: 10px 0; }
-      .main__container p a {
-        color: blue; }
+    .main__container > div h2 {
+      font-size: 2rem;
+      padding-left: 10px;
+      padding-bottom: 6px;
+      margin-bottom: 24px;
+      border-bottom: 3px solid #180d44; }
+    .main__container .status table {
+      border-color: #bbb; }
+      .main__container .status table tr th,
+      .main__container .status table tr td {
+        padding: 0px 12px;
+        height: 36px; }
+        .main__container .status table tr th a,
+        .main__container .status table tr td a {
+          color: blue; }
+    .main__container .description ul li {
+      margin-bottom: 10px; }
+      .main__container .description ul li:before {
+        content: '･ '; }

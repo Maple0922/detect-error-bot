@@ -26,20 +26,20 @@ $log_file = '/Users/futonakajima/Web/detect-error-bot/txt/log.txt';
 $target_url = 'https://oh-o2.meiji.ac.jp/portal/oh-o_meiji/';
 $status_code = get_http_status_code($target_url);
 $prev_status_code = file_get_contents($prevcode_file);
-// $status_code = 500;
+if($status_code == 302){
+	$status_code = 200;
+}
 
-$log_time = date('i') == 0;
-// $tweet_time = date('H')%2 == 1 && date('i') == 0;
-$tweet_time = date('i')%3===0;
+// $log_time = date('i') == 0;
+$log_time = date('i')%20 == 0;
+$tweet_time = date('H')%2 == 1 && date('i') == 0;
 
 $change = $prev_status_code != $status_code;
 
-
+$tweet = $change || $tweet_time;
 // message
 
 switch ($status_code) {
-	case 302:
-	$status_code = 200;
 	case 200:
 	$status_message = $change ? 'サーバーが正常に戻りました。' : 'サーバーは正常です。';
 	break;
@@ -69,10 +69,9 @@ if($change){
 
 $message = '【'.$status_code.'】'.$status_message. '('. date('Y/m/d/H:i') .')';
 
-if ($change || $tweet_time){
+if ($tweet){
 	$response = $twitter->post('statuses/update', array('status' => $message));
 	file_put_contents($prevcode_file, $status_code);
-	$tweet = true;
 }
 
 ?>

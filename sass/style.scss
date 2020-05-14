@@ -1,0 +1,65 @@
+@import "import";
+
+// styles
+
+.header {
+  height: $height-header;
+  width: 100%;
+  padding: 0 30px;
+  background: $meiji-purple;
+  box-shadow: $basic-shadow;
+  position: relative;
+  &__title {
+    font-size: 2.4rem;
+    line-height: $height-header;
+    color: $white;
+  }
+}
+
+.main {
+  min-height: $height-main;
+  background: $super-light-gray;
+  padding: 30px;
+  font-size: 1.6rem;
+  &__container {
+    background: $white;
+    padding: 16px 24px 24px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    box-shadow: $basic-shadow;
+    > div {
+      h2 {
+        font-size: 2rem;
+        padding-left: 10px;
+        padding-bottom: 6px;
+        margin-bottom: 24px;
+        border-bottom: 3px solid $meiji-purple;
+      }
+    }
+    .status {
+      table {
+        border-color: $light-gray;
+        tr {
+          th,
+          td {
+            padding: 0px 12px;
+            height: 36px;
+            a {
+              color: blue;
+            }
+          }
+        }
+      }
+    }
+    .description {
+      ul {
+        li {
+          margin-bottom: 10px;
+          &:before {
+            content: '･ ';
+          }
+        }
+      }
+    }
+  }
+}
