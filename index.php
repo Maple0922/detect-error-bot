@@ -31,6 +31,18 @@
             <td><?php echo $status_message; ?></td>
           </tr>
           <tr>
+            <th>TITLE</th>
+            <td><?php echo $title; ?></td>
+          </tr>
+          <tr>
+            <th>MAINTENANCE</th>
+            <td><?php echo $maintenance? 'true':'false'; ?></td>
+          </tr>
+          <tr>
+            <th>MAINTENANCE CHANGE</th>
+            <td><?php echo $maintenance_change? 'true':'false'; ?></td>
+          </tr>
+          <tr>
             <th>TIME</th>
             <td><?php echo date('Y/n/d/H:i:s'); ?></td>
           </tr>
@@ -49,6 +61,7 @@
           <li>20分ごとにlog.txtにログを残す</li>
           <li>2時間ごとにツイートする</li>
           <li>ステータスコードが変わった際もツイートする</li>
+          <li>メンテナンス開始時、終了時にもツイートする</li>
         </ul>
       </div>
     </div>
