@@ -103,11 +103,11 @@ if($log_time){
 $message = '【'.$status_code.'】'.$status_message. '('. date('Y/m/d/H:i') .')';
 
 if ($tweet){
+	$response = $twitter->post('statuses/update', array('status' => $message));
 	if($change){
-		$response = $twitter->post('statuses/update', array('status' => $message));
 		file_put_contents($prevcode_file, $status_code);
-	}elseif ($maintenance_change){
-		$response = $twitter->post('statuses/update', array('status' => $message));
+	}
+	if($maintenance_change){
 		file_put_contents($prevtitle_file, $title);
 	}
 }
